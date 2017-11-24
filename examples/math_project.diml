@@ -42,22 +42,3 @@ int main(array:str args) { // data structures are defined as <struct>:<type> whe
   print(complex); // if the class defines a `to_str` method, print will call this and use the string it returns
   // if that function doesn't return a str, or the function errors or doesn't exist, you must use printf
 }
-
-
-// complex_numbers.diml
-
-class ComplexBuilder {
-  float a;
-  float b; // properties must be declared at creation of class, but are still mutable
-
-  null init(class self, float a, float b) {
-    self.a = a;
-    self.b = a; // class/struct indexing is done with `.`
-    // implicit `return null`
-  }
-
-  str to_str(class self) {
-    return strf("(%f + %fi)", self.a, self.b) // `strf` uses a similar format grammar to C's `printf`
-    // if return type of `strf` is same type as return type of `to_str`, then this is fine
-  }
-} // classes don't need semicolons
